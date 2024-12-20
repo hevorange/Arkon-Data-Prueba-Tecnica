@@ -5,4 +5,6 @@ csv_path = './data/Data1.csv'
 parquet_path = './data/data2.parquet'
 
 df = etl_functions.extract(csv_path, parquet_path)
-print(df)
+
+df_starships_unique = etl_functions.get_unique_values(df)
+print(df_starships_unique)

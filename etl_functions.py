@@ -13,6 +13,11 @@ def extract(csv_path,parquet_path):
     except Exception as error:
         print(f'Error: {error}')
     
-    
+
+def get_unique_values(df):
+
+    starships= df['starships'].unique()
+    df_starships = pd.DataFrame(starships, columns= ['starships'] )
+    return df_starships
     
     
