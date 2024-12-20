@@ -19,5 +19,16 @@ def get_unique_values(df):
     starships= df['starships'].unique()
     df_starships = pd.DataFrame(starships, columns= ['starships'] )
     return df_starships
-    
-    
+
+def record_counts(df):
+
+    df_record = df.groupby(['skin_color', 'eye_color']).size().reset_index(name='count')
+    return df_record
+
+
+def get_duplicate_names(df):
+
+    duplicate_names = df.groupby('name').size().reset_index(name='count')
+    duplicate_names = duplicate_names[duplicate_names['count']>1]
+
+    return duplicate_names
