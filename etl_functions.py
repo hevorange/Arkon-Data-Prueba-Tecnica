@@ -1,6 +1,8 @@
 import pandas as pd
 
 
+
+
 def extract(csv_path,parquet_path):
     
     try:
@@ -32,3 +34,15 @@ def get_duplicate_names(df):
     duplicate_names = duplicate_names[duplicate_names['count']>1]
 
     return duplicate_names
+
+
+def load_to_db(df, sql_connection,table_name):
+
+    df.to_sql(table_name, sql_connection, if_exists='replace', index=False)
+
+def run_query(query_statement, sql_connection):
+    ''' This function runs the stated query on the database table and
+    prints the output on the terminal. Function returns nothing. '''
+    print(query_statement)
+    query_output = pd.read_sql(query_statement, sql_connection)
+    print(query_output)
