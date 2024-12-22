@@ -20,8 +20,18 @@ def run():
     sql_connection = sqlite3.connect(db_name)
     etl_functions.load_to_db(df, sql_connection, table_name)
 
-    query_statement = f"SELECT * FROM {table_name}"
+
+    """ PASO 5 -enerar una query de SQL que muestre la siguiente información, los nombres que tengan un
+        height arriba de 180 pero menor a 190, que cumplan la condición de ser male y el hair_color
+        sea cualquiera menos “none”
+
+    query_statement = f"SELECT * FROM {table_name} WHERE height > 180 AND height < 190 AND sex='male' AND hair_color!='none'"
     etl_functions.run_query(query_statement,sql_connection)
+    
+    """
+
+    
+
 
 
 if __name__=='__main__':
