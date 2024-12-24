@@ -17,9 +17,10 @@ def extract(csv_path,parquet_path):
     
 
 def get_unique_values(df):
-
+    
+    print('VALORES UNICOS DE STARSHIPS')
     starships= df['starships'].unique()
-    df_starships = pd.DataFrame(starships, columns= ['starships'] )
+    df_starships = pd.DataFrame(starships, columns=['starships'])
     return df_starships
 
 def record_counts(df):
